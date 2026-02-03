@@ -322,6 +322,7 @@ nav {
 }
 
 /* 9. Container for the whole project card */
+/* Ensure the card is the "anchor" for the stretched link */
 
 .project-card {
     display: flex;
@@ -335,11 +336,32 @@ nav {
     gap: 30px;
     overflow: hidden; /* Essential: keeps the zoom contained */
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    position: relative; /* Crucial: contains the stretched link within this box */
+    cursor: pointer;
 }
 
+/* The Stretched Link Magic */
+.stretched-link::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1; /* Covers the whole card */
+}
+
+/* Ensure buttons stay on top of the link so they remain interactive */
+.project-btns, .project-right {
+    position: relative;
+    z-index: 2; 
+}
+
+/* Hover effect for the whole card to signal it is clickable */
 .project-card:hover {
-    border-color: var(--accent); /* Changes border to SJTU blue on hover */
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border-color: var(--accent); /* Uses your SJTU blue */
 }
 
 /* Left Section: Year */
