@@ -312,3 +312,37 @@ footer {
     color: var(--accent); /* Uses your professional blue on hover */
     transform: translateY(-2px); /* Subtle lift effect */
 }
+
+/* Logo in Navigation Bar */
+.nav-logo-img {
+    height: 24px;         /* Standard professional logo height */
+    width: auto;          /* Maintains aspect ratio */
+    margin-right: 15px;   /* Space between logo and Email icon */
+    vertical-align: middle;
+    transition: transform 0.3s ease;
+}
+
+.nav-logo-link:hover .nav-logo-img {
+    transform: scale(1.1); /* Subtle zoom when you hover */
+}
+
+/* Ensure nav-left aligns everything vertically */
+.nav-left {
+    display: flex;
+    align-items: center;
+}
+
+/* Strava Specific Hover */
+.strava-link:hover i {
+    color: #FC4C02 !important; /* Official Strava Orange */
+}
+
+/* Instagram Brand Hover Effect */
+.instagram-link:hover i {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transform: translateY(-2px);
+    transition: all 0.3s ease;
+}
