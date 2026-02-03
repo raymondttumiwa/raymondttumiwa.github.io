@@ -364,6 +364,29 @@ nav {
     border-color: var(--accent); /* Uses your SJTU blue */
 }
 
+/* --- Card Arrow Interaction --- */
+
+.card-arrow {
+    font-size: 0.9rem;
+    color: var(--accent); /* Uses your professional blue */
+    opacity: 0;            /* Hidden by default */
+    transform: translateX(-10px); /* Starts slightly to the left */
+    transition: all 0.3s ease;
+    margin-left: 8px;
+    display: inline-block;
+}
+
+/* When the card is hovered, trigger the arrow animation */
+.project-card:hover .card-arrow {
+    opacity: 1;
+    transform: translateX(0); /* Slides into place */
+}
+
+/* Optional: Change the title color on hover to match the arrow */
+.project-card:hover .post-link {
+    color: var(--accent);
+}
+
 /* Left Section: Year */
 /* Container for the Left Column (High Density) */
 .project-left {
