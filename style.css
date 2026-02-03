@@ -205,10 +205,10 @@ nav {
 
 /* Standard Logo Black for Light Mode Navigation Logo */
 .nav-logo-img {
-    height: 32px;         /* Keeps the size consistent with your header */
-    width: 32px;          /* Force a 1:1 aspect ratio to ensure a perfect circle */
+    height: 64px;         /* Keeps the size consistent with your header */
+    width: 64px;          /* Force a 1:1 aspect ratio to ensure a perfect circle */
     object-fit: cover;    /* Ensures the logo isn't stretched inside the circle */
-    border-radius: 50%;   /* This creates the firm circular shape */
+    border-radius: 90%;   /* This creates the firm circular shape */
     border: 1px solid var(--border); /* Optional: adds a subtle ring around the circle */
     
     margin-right: 15px;   
@@ -355,7 +355,7 @@ nav {
 
 /* Year Styling - Small & Clean */
 .project-year {
-    font-size: 1.6rem;
+    font-size: 1.0rem;
     font-weight: 800;
     color: var(--border); /* Soft grey/silver look */
     line-height: 1;
@@ -365,6 +365,7 @@ nav {
 /* Button Group Container */
 .project-btns {
     display: flex;
+    font-size: .50rem;
     flex-direction: column;
     gap: 8px; /* Spacing between buttons */
     width: 100%;
@@ -378,8 +379,8 @@ nav {
     text-align: left;
     padding: 8px 12px;
     border-radius: 6px;
-    font-size: 0.7rem; /* Smaller font for high density */
-    font-weight: 700;
+    font-size: 0.6rem; /* Smaller font for high density */
+    font-weight: 1000;
     letter-spacing: 0.5px;
     text-transform: uppercase;
     transition: all 0.3s ease;
@@ -391,19 +392,27 @@ nav {
     transform: translateX(3px); /* Subtle slide effect */
 }
 
-/* Ensure images don't stretch the card too much */
-.project-right {
-    flex: 0 0 240px; 
-    height: 150px;
-    overflow: hidden;
-    border-radius: 8px;
-}
-
 /* Middle Section: Text content */
 .project-middle {
     flex: 1;
 }
+/* --- Read Time Subtle Styling --- */
 
+.project-read-time {
+    font-size: 0.75rem;       /* Smaller size than main text */
+    text-transform: uppercase; /* Professional look */
+    letter-spacing: 0.5px;
+    opacity: 0.5;              /* More transparent / less visible */
+    margin-bottom: 8px;        /* Spacing above the title */
+    display: block;            /* Ensures it stays on its own line */
+    color: var(--text-color);  /* Adapts to dark/light theme */
+}
+
+/* Optional: Make it slightly clearer on hover when the card is active */
+.project-card:hover .project-read-time {
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
 /* Right Section: The Image "Window" */
 .project-right {
     flex: 0 0 250px; /* Fixed width for consistency */
@@ -588,4 +597,43 @@ footer p {
     .main-name {
         font-size: 2.2rem;
     }
+}
+
+/* Container to hold Logo and Text on one line */
+.blog-header-container {
+    display: flex;
+    align-items: center; /* Vertically centers the logo with the text */
+    gap: 15px;           /* Spacing between the logo and the title */
+    margin-top: 40px;
+    margin-bottom: 10px;
+}
+
+/* Small Logo Styling */
+.title-inline-logo {
+    height: 200px;        /* Matches the height of your text */
+    width: auto;
+    object-fit: contain;
+    /* Optional: Invert logic if you use the same logo as your nav */
+    transition: filter 0.4s ease;
+}
+
+/* Ensure the title doesn't have extra margins */
+.main-blog-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin: 0;
+    color: var(--text-color);
+}
+
+/* The line underneath the header */
+.header-divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin-bottom: 40px;
+}
+
+/* Dark Mode Inversion if your logo is black */
+[data-theme="dark"] .title-inline-logo {
+    filter: invert(1) brightness(2);
 }
