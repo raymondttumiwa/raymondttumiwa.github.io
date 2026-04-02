@@ -275,20 +275,22 @@ nav {
 
 /* --- Medium-Style Post Layout --- */
 
-/* Main Header Section */
 .post-header {
     max-width: 740px;
-    margin: 60px auto 40px auto;
+    margin: 40px auto 30px auto; /* Reduced top margin for mobile */
     text-align: left;
+    width: 100%; /* Ensures it stays within the container */
+    padding: 0 10px; /* Safety padding for very narrow screens */
 }
 
 .post-title-main {
     font-size: 3.5rem;
-    font-weight: 800; /* Extra heavy for breakthrough titles */
-    letter-spacing: -2px;
-    line-height: 1.1;
+    font-weight: 800;
+    letter-spacing: -1.5px; /* Slightly less aggressive than -2px to prevent overlapping */
+    line-height: 1.15;
     margin-bottom: 15px;
     color: var(--text-color);
+    word-wrap: break-word; /* Essential for mobile safety */
 }
 
 .post-read-time {
@@ -305,11 +307,20 @@ nav {
 .post-meta-infobar {
     display: flex;
     justify-content: flex-start;
-    gap: 60px;
-    padding: 25px 0;
+    flex-wrap: wrap; /* Allows items to wrap to the next line on small screens */
+    gap: 30px; /* Reduced gap for better mobile fit */
+    padding: 20px 0;
     border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
-    margin-bottom: 50px;
+    margin-bottom: 40px;
+}
+
+@media (max-width: 768px) {
+    .post-meta-infobar {
+        gap: 15px; /* Even tighter for phones */
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Creates a neat 2-column grid on mobile */
+    }
 }
 
 .meta-block h5 {
@@ -346,11 +357,21 @@ nav {
     font-family: 'Inter', sans-serif;
 }
 
-/* Responsive Fixes */
 @media (max-width: 768px) {
-    .post-title-main { font-size: 2.5rem; }
-    .post-meta-infobar { 
-        flex-direction: column; 
-        gap: 20px; 
+    .post-title-main {
+        font-size: 2.2rem; /* Scaled down for mobile readability */
+        letter-spacing: -0.5px;
     }
+    
+    .blog-content {
+        font-size: 1.05rem; /* Slightly smaller for mobile reading */
+        line-height: 1.7;
+    }
+}
+
+/* --- Global Mobile Safety --- */
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+    position: relative;
 }
