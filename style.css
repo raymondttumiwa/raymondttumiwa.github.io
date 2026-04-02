@@ -479,21 +479,9 @@ nav {
     transform: scale(1.1); /* Zooms in by 10% */
 }
 
-/* Left Section: Year (approx 10%) */
-.project-left {
-    flex: 0 1000 80px; 
-    text-align: center;
-}
-
 /* Middle Section: Title & Description (approx 60%) */
 .project-middle {
     flex: 1; /* Takes up all remaining middle space */
-}
-
-/* Right Section: The Image Container (approx 30%) */
-.project-right {
-    flex: 0 0 250px; /* Forces the image area to be exactly 250px wide */
-    height: 160px;    /* Forces a consistent height for all project images */
 }
 
 /* 10. Individual Blog Post Layout */
@@ -625,6 +613,10 @@ footer p {
 }
 
 @media (max-width: 768px) {
+    /* Scale down the massive logo for mobile */
+    .title-inline-logo {
+        height: 80px; 
+    }
     .hero-flex {
         flex-direction: column-reverse;
         align-items: center;
@@ -644,14 +636,12 @@ footer p {
     }
 }
 
-/* Container to hold Logo and Text on one line */
-.blog-header-container {
-    display: flex;
-    align-items: center; /* Vertically centers the logo with the text */
-    gap: 15px;           /* Spacing between the logo and the title */
-    margin-top: 40px;
-    margin-bottom: 10px;
-}
+/* Stack logo and title vertically on very small screens */
+    .blog-header-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
 
 /* Small Logo Styling */
 .title-inline-logo {
@@ -664,12 +654,8 @@ footer p {
 
 /* Ensure the title doesn't have extra margins */
 .main-blog-title {
-    font-size: 2.5rem;
-    font-weight: 800;
-    letter-spacing: -1px;
-    margin: 0;
-    color: var(--text-color);
-}
+        font-size: 1.8rem; /* Smaller text for mobile headers */
+    }
 
 /* The line underneath the header */
 .header-divider {
@@ -681,4 +667,26 @@ footer p {
 /* Dark Mode Inversion if your logo is black */
 [data-theme="dark"] .title-inline-logo {
     filter: invert(1) brightness(2);
+}
+
+@media (max-width: 768px) {
+    .nav-logo-img {
+        height: 40px;
+        width: 40px;
+    }
+    
+    .nav-right {
+        gap: 15px; /* Tighter spacing for mobile buttons */
+    }
+
+    .project-card {
+        padding: 15px;
+        gap: 20px;
+    }
+    
+    /* Make buttons horizontal on mobile for better thumb-reach */
+    .project-btns {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
 }
