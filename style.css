@@ -16,7 +16,6 @@
     --accent: #0A84FF;
     --border: #38383a;
 }
-
 /* 2. General Reset & Base Styles */
 * {
     margin: 0;
@@ -32,14 +31,131 @@ body {
     transition: all 0.4s ease;
 }
 
-/* This container ensures the alignment is identical for every section */
 .container {
     max-width: 900px;
     margin: 0 auto;
-    padding: 0 2rem; /* Side padding only */
+    padding: 0 2rem;
 }
 
-/* 3. Navigation */
+/* --- Research & Development Section --- */
+
+.research-interests h2 {
+    font-weight: 800;          /* Bold part only for the title */
+    color: var(--text-color);   /* Automatically Black in Light / White in Dark */
+    margin-bottom: 20px;
+}
+
+.research-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.research-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    font-weight: 400;          /* Normal weight for the content */
+    color: var(--text-color);   /* Flips color automatically based on theme */
+}
+
+/* The Indented Bullet */
+.research-item::before {
+    content: "•";
+    color: var(--text-color);       /* Keeps the blue accent for technical feel */
+    width: 1.5rem;              /* The indentation amount */
+    flex-shrink: 0;
+    font-weight: bold;
+}
+
+/* Ensuring <strong> tags inside the list are still bold but stay theme-colored */
+.research-item strong {
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.collaboration-callout {
+    margin-top: 50px;
+    padding: 25px 30px;
+    background-color: var(--card-bg); /* White in Light, Dark Grey in Dark mode */
+    border-left: 4px solid var(--card-bg); /* Your SJTU blue accent line */
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Very subtle shadow */
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.collaboration-callout:hover {
+    border-color: var(--text-color); /* Changes blue to white/black on hover */
+    transform: translateX(5px); /* Slight horizontal shift on hover */
+}
+
+.collaboration-callout p {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+.collaboration-callout .text-link {
+    font-weight: 700;
+    text-decoration: underline;
+    color: var(--accent);
+}
+
+/* 3. Link Logic */
+a {
+    text-decoration: none;
+    color: var(--text-color);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--accent);
+}
+
+/* 4. Reading Progress Bar */
+.progress-container {
+    position: fixed;
+    top: 0;
+    z-index: 2000;
+    width: 100%;
+    height: 4px;
+    background: transparent;
+}
+
+.progress-bar {
+    height: 4px;
+    background: var(--accent);
+    width: 0%;
+}
+
+/* 5. Back to Top Button */
+
+#backToTop {
+    display: none; /* Hidden by default */
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background-color: var(--accent); /* Uses your professional blue */
+    color: white;
+    cursor: pointer;
+    padding: 12px 16px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    transition: transform 0.3s, opacity 0.3s, background-color 0.3s;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+#backToTop:hover {
+    transform: translateY(-5px); /* Subtle lift effect */
+    background-color: var(--text-color); /* Changes to black/white on hover */
+}
+
+/* 6. Navigation */
 nav {
     position: sticky;
     top: 0;
@@ -48,7 +164,7 @@ nav {
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--border);
     padding: 1rem 0;
-    margin-bottom: 40px; /* Space before content starts */
+    margin-bottom: 40px;
 }
 
 .nav-split {
@@ -57,28 +173,103 @@ nav {
     align-items: center;
 }
 
-.nav-left a, .nav-right a {
-    text-decoration: none;
-    color: var(--text-color);
-    margin-right: 15px;
-    font-size: 0.9rem;
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.nav-left a {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 0;
+}
+
+.nav-left i {
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.nav-right a {
+    font-size: 0.95rem;
     font-weight: 500;
+    margin-right: 0;
+    transition: color 0.3s ease;
 }
 
-.nav-left a:hover, .nav-right a:hover {
-    color: var(--accent);
+/* Standard Logo Black for Light Mode Navigation Logo */
+.nav-logo-img {
+    height: 64px;         /* Keeps the size consistent with your header */
+    width: 64px;          /* Force a 1:1 aspect ratio to ensure a perfect circle */
+    object-fit: cover;    /* Ensures the logo isn't stretched inside the circle */
+    border-radius: 90%;   /* This creates the firm circular shape */
+    border: 1px solid var(--border); /* Optional: adds a subtle ring around the circle */
+    
+    margin-right: 15px;   
+    vertical-align: middle;
+    transition: filter 0.4s ease, transform 0.3s ease;
+}
+/* Invert Logo for Dark Mode */
+[data-theme="dark"] .nav-logo-img {
+    filter: invert(1) brightness(2); /* Turns black to white */
 }
 
+.nav-logo-link:hover .nav-logo-img {
+    transform: scale(1.1);
+}
+
+/* Dark Mode Toggle */
 #dark-mode-toggle {
     background: none;
     border: 1px solid var(--border);
     color: var(--text-color);
-    padding: 4px 12px;
+    font-size: 0.95rem;
+    padding: 6px 14px;
     border-radius: 20px;
     cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
 }
 
-/* 4. Hero Section & Typography */
+/* Universal Nav Hover Behavior */
+.nav-left a:hover i,
+.nav-right a:hover,
+#dark-mode-toggle:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+    transform: translateY(-2px);
+}
+
+#dark-mode-toggle:hover {
+    background-color: rgba(0, 122, 255, 0.05);
+}
+
+#dark-mode-toggle:hover i {
+    transform: rotate(15deg);
+    transition: transform 0.3s ease;
+}
+
+/* Brand-Specific Hovers */
+.strava-link:hover i {
+    color: #FC4C02 !important;
+}
+
+.instagram-link:hover i {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* 7. Hero & Typography */
 .main-name {
     font-size: 3rem;
     font-weight: 800;
@@ -95,16 +286,6 @@ nav {
     gap: 50px;
 }
 
-.hero-text {
-    flex: 2;
-}
-
-.hero-image {
-    flex: 1;
-    display: flex;
-    justify-content: flex-end;
-}
-
 .profile-rect {
     width: 280px;
     height: 380px;
@@ -114,201 +295,390 @@ nav {
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
-/* 5. Research, Skills, & Projects (The "Line" Sections) */
-.info-section, .research-interests {
-    margin-top: 30px;
+/* 8. Info Sections */
+.info-section {
+    margin-top: 40px;
 }
 
-.section-header, .research-interests h3 {
+.section-header {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 40px;
     margin-bottom: 15px;
 }
 
-/* Unifying Research Header with other Section Headers */
-.research-interests h3, .section-header h2 {
+.section-header h2 {
     font-size: 1.2rem;
-    color: var(--accent);
+    color: var(--text-color);
     text-transform: uppercase;
     letter-spacing: 1px;
     white-space: nowrap;
-    margin: 0;
-}
-
-/* Adding the line after Research title for consistent alignment */
-.research-interests h3::after, .section-header hr {
-    content: "";
-    flex-grow: 1;
-    border-top: 1px solid var(--border);
 }
 
 .section-header hr {
+    flex-grow: 1;
     border: none;
     border-top: 1px solid var(--border);
 }
 
-.research-interests ul {
-    list-style: none;
-    padding-left: 0;
-}
+/* 9. Container for the whole project card */
+/* Ensure the card is the "anchor" for the stretched link */
 
-.research-interests li {
-    margin-bottom: 12px;
-    font-size: 0.95rem;
-    padding-left: 20px;
-    position: relative;
-}
-
-.research-interests li::before {
-    content: "→";
-    position: absolute;
-    left: 0;
-    color: var(--accent);
-    font-weight: bold;
-}
-
-.section-content {
-    /* CHANGED: Match the alignment of the hero text */
-    padding-left: 0; 
-    margin-top: 10px;
-}
-
-.info-section {
-    margin-top: 30px; /* Space between sections */
-    margin-bottom: 30px;
-}
-
-.section-content strong {
-    color: var(--accent);
-}
-
-/* 6. Footer */
-footer {
-    text-align: center;
-    color: #888;
-    margin-top: 80px;
-    padding-bottom: 40px;
-    font-size: 0.8rem;
-}
-
-/* Mobile Responsive */
-@media (max-width: 768px) {
-    .main-name { font-size: 2.2rem; }
-    .hero-flex { flex-direction: column-reverse; align-items: center; }
-    .hero-image { margin-bottom: 20px; }
-    .profile-rect { width: 220px; height: 300px; }
-}
-
-/* Project Card Layout */
 .project-card {
     display: flex;
+    align-items: center; 
+    justify-content: space-between;
     background: var(--card-bg);
     border: 1px solid var(--border);
     border-radius: 12px;
     padding: 25px;
-    margin-bottom: 20px;
-    gap: 20px;
-    transition: transform 0.2s ease;
+    margin-bottom: 25px;
+    gap: 30px;
+    overflow: hidden; /* Essential: keeps the zoom contained */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    position: relative; /* Crucial: contains the stretched link within this box */
+    cursor: pointer;
 }
 
+/* The Stretched Link Magic */
+.stretched-link::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1; /* Covers the whole card */
+}
+
+/* Ensure buttons stay on top of the link so they remain interactive */
+.project-btns, .project-right {
+    position: relative;
+    z-index: 2; 
+}
+
+/* Hover effect for the whole card to signal it is clickable */
 .project-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border-color: var(--accent); /* Uses your SJTU blue */
 }
 
-/* Left side: Date and Buttons */
+/* --- Card Arrow Interaction --- */
+
+.card-arrow {
+    font-size: 0.9rem;
+    color: var(--accent); /* Uses your professional blue */
+    opacity: 0;            /* Hidden by default */
+    transform: translateX(-10px); /* Starts slightly to the left */
+    transition: all 0.3s ease;
+    margin-left: 8px;
+    display: inline-block;
+}
+
+/* When the card is hovered, trigger the arrow animation */
+.project-card:hover .card-arrow {
+    opacity: 1;
+    transform: translateX(0); /* Slides into place */
+}
+
+/* Optional: Change the title color on hover to match the arrow */
+.project-card:hover .post-link {
+    color: var(--accent);
+}
+
+/* Left Section: Year */
+/* Container for the Left Column (High Density) */
 .project-left {
-    flex: 0 0 80px; /* Fixed width */
+    flex: 0 0 110px; /* Fixed width to accommodate the buttons */
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    align-items: flex-start; /* Left aligns all items */
+    gap: 12px; /* Spacing between year and buttons */
+    padding-top: 5px;
 }
 
+/* Year Styling - Small & Clean */
 .project-year {
-    font-weight: 700;
-    color: #ccc;
-    font-size: 1.1rem;
+    font-size: 1.0rem;
+    font-weight: 800;
+    color: var(--border); /* Soft grey/silver look */
+    line-height: 1;
+    letter-spacing: -0.5px;
 }
 
+/* Button Group Container */
+.project-btns {
+    display: flex;
+    font-size: .50rem;
+    flex-direction: column;
+    gap: 8px; /* Spacing between buttons */
+    width: 100%;
+}
+
+/* The Hoverable Keyword Blocks (Abstract, Code, etc.) */
 .btn-sm {
     display: block;
-    background: #546e7a; /* Muted grey-blue like the reference */
-    color: white;
-    text-decoration: none;
-    font-size: 0.65rem;
-    padding: 4px 8px;
-    border-radius: 4px;
-    text-align: center;
-    font-weight: 600;
+    background-color: #5d6d7e; /* Professional slate blue from image */
+    color: #ffffff !important;
+    text-align: left;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 0.6rem; /* Smaller font for high density */
+    font-weight: 1000;
     letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
 }
 
-/* Middle: Text Content */
+/* Interactive Hover Logic */
+.btn-sm:hover {
+    background-color: var(--accent); /* Switches to SJTU Blue */
+    transform: translateX(3px); /* Subtle slide effect */
+}
+
+/* Middle Section: Text content */
 .project-middle {
-    flex: 2;
-}
-
-.project-middle h3 {
-    font-size: 1.3rem;
-    margin-bottom: 5px;
-    color: var(--text-color);
-}
-
-.project-subtitle {
-    font-weight: 600;
-    font-size: 0.95rem;
-    margin-bottom: 8px;
-}
-
-.project-details {
-    font-size: 0.85rem;
-    color: #666;
-    line-height: 1.4;
-}
-
-[data-theme="dark"] .project-details {
-    color: #aaa;
-}
-
-/* Right side: Project Image */
-.project-right {
     flex: 1;
-    display: flex;
-    align-items: center;
+}
+/* --- Read Time Subtle Styling --- */
+
+.project-read-time {
+    font-size: 0.75rem;       /* Smaller size than main text */
+    text-transform: uppercase; /* Professional look */
+    letter-spacing: 0.5px;
+    opacity: 0.5;              /* More transparent / less visible */
+    margin-bottom: 8px;        /* Spacing above the title */
+    display: block;            /* Ensures it stays on its own line */
+    color: var(--text-color);  /* Adapts to dark/light theme */
+}
+
+/* Optional: Make it slightly clearer on hover when the card is active */
+.project-card:hover .project-read-time {
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+/* Right Section: The Image "Window" */
+.project-right {
+    flex: 0 0 250px; /* Fixed width for consistency */
+    height: 160px;   /* Fixed height */
+    overflow: hidden; /* Crops the image as it zooms */
+    border-radius: 8px;
+    border: 1px solid var(--border);
 }
 
 .project-img {
     width: 100%;
-    height: 120px;
-    object-fit: cover;
-    border-radius: 6px;
+    height: 100%;
+    object-fit: cover; /* Fills space without distortion */
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth zoom curve */
+}
+
+/* The Zoom Trigger */
+.project-img:hover{
+    transform: scale(1.1); /* Zooms in by 10% */
+}
+
+/* Left Section: Year (approx 10%) */
+.project-left {
+    flex: 0 1000 80px; 
+    text-align: center;
+}
+
+/* Middle Section: Title & Description (approx 60%) */
+.project-middle {
+    flex: 1; /* Takes up all remaining middle space */
+}
+
+/* Right Section: The Image Container (approx 30%) */
+.project-right {
+    flex: 0 0 250px; /* Forces the image area to be exactly 250px wide */
+    height: 160px;    /* Forces a consistent height for all project images */
+}
+
+/* 10. Individual Blog Post Layout */
+.blog-post-layout {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 60px;
+    padding-top: 80px;
+}
+
+.blog-sidebar {
+    position: sticky;
+    top: 100px;
+    height: fit-content;
+}
+
+.blog-sidebar h4 {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 15px;
+}
+
+.blog-sidebar ul {
+    list-style: none;
+}
+
+.blog-sidebar ul li {
+    margin-bottom: 10px;
+}
+
+.blog-sidebar a {
+    font-size: 0.9rem;
+    opacity: 0.6;
+}
+
+.blog-sidebar a:hover {
+    opacity: 1;
+}
+
+/* Blog Content Typography */
+.post-title-main {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+    line-height: 1.1;
+}
+
+.post-tagline {
+    font-size: 1.2rem;
+    opacity: 0.7;
+    margin-bottom: 30px;
+}
+
+.post-meta {
+    display: flex;
+    gap: 60px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 25px 0;
+    margin-bottom: 40px;
+}
+
+.meta-item {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    line-height: 1.6;
+}
+
+/* Images & Captions */
+.post-image {
+    width: 100%;
+    border-radius: 8px;
     border: 1px solid var(--border);
 }
 
-/* Mobile responsive for cards */
-@media (max-width: 768px) {
-    .project-card {
-        flex-direction: column;
+.figure-container {
+    position: relative;
+    margin: 50px 0;
+}
+
+.figure-caption {
+    position: absolute;
+    right: -240px;
+    top: 0;
+    width: 200px;
+    font-size: 0.8rem;
+    color: #888;
+    line-height: 1.5;
+    border-left: 2px solid var(--accent);
+    padding-left: 15px;
+}
+
+/* 11. Footer */
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100px;
+    color: #888;
+    margin-top: 80px;
+    padding-bottom: 40px;
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+footer p {
+    margin: 0;
+    opacity: 0.8;
+}
+
+/* 12. Responsive Adjustments */
+@media (max-width: 1000px) {
+    .blog-post-layout {
+        grid-template-columns: 1fr;
     }
-    .project-left {
-        flex-direction: row;
-        align-items: center;
+    .blog-sidebar {
+        position: static;
+        margin-bottom: 40px;
+    }
+    .figure-caption {
+        position: static;
         width: 100%;
+        margin-top: 10px;
+        border-left: 2px solid var(--accent);
+        padding-left: 15px;
     }
+}
+
+@media (max-width: 768px) {
+    .hero-flex {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+    .project-card {
+        flex-direction: column; /* Stacks Year -> Text -> Image */
+        align-items: flex-start;
+    }
+    
     .project-right {
-        order: -1; /* Image on top for mobile */
+        flex: 0 0 auto;
+        width: 100%; /* Image takes full width on mobile */
+        height: 200px;
+    }
+    .main-name {
+        font-size: 2.2rem;
     }
 }
 
-/* Navigation Icon Styling */
-.nav-left i {
-    font-size: 1.2rem; /* Adjust size to match your navigation font */
-    transition: transform 0.2s ease, color 0.2s ease;
-    margin-right: 5px; /* Adjust spacing between icons */
+/* Container to hold Logo and Text on one line */
+.blog-header-container {
+    display: flex;
+    align-items: center; /* Vertically centers the logo with the text */
+    gap: 15px;           /* Spacing between the logo and the title */
+    margin-top: 40px;
+    margin-bottom: 10px;
 }
 
-.nav-left a:hover i {
-    color: var(--accent); /* Uses your professional blue on hover */
-    transform: translateY(-2px); /* Subtle lift effect */
+/* Small Logo Styling */
+.title-inline-logo {
+    height: 200px;        /* Matches the height of your text */
+    width: auto;
+    object-fit: contain;
+    /* Optional: Invert logic if you use the same logo as your nav */
+    transition: filter 0.4s ease;
+}
+
+/* Ensure the title doesn't have extra margins */
+.main-blog-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin: 0;
+    color: var(--text-color);
+}
+
+/* The line underneath the header */
+.header-divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin-bottom: 40px;
+}
+
+/* Dark Mode Inversion if your logo is black */
+[data-theme="dark"] .title-inline-logo {
+    filter: invert(1) brightness(2);
 }

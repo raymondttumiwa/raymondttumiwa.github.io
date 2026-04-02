@@ -5,17 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Raymond Timothy Tumiwa | Robotics & Engineering</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="image/Favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
 </head>
 <body>
     <nav>
     <div class="container nav-split">
         <div class="nav-left">
+            <a href="index.html" class="nav-logo-link">
+                <img src="image/Favicon.png" alt="RT Logo" class="nav-logo-img">
+            </a>
             <a href="mailto:raymondt16@sjtu.edu.cn"><i class="fa-solid fa-envelope"></i></a>
             <a href="https://www.linkedin.com/in/raymond-tumiwa/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-            <a href="https://github.com/arti1601" target="_blank"><i class="fa-brands fa-github"></i></a>
-            <a href="https://www.instagram.com/raymondtumiwaa_/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://github.com/raymondttumiwa" target="_blank"><i class="fa-brands fa-github"></i></a>
+            <a href="https://www.instagram.com/raymondtumiwaa_/" target="_blank" class="instagram-link"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.strava.com/athletes/48459231" target="_blank" class="strava-link">
+                <i class="fa-brands fa-strava"></i>
+            </a>
         </div>
 
         <div class="nav-right">
@@ -47,27 +55,33 @@
         </div>
         
         <div class="hero-image">
-            <img src="images/profile_id.jpg" alt="Raymond Timothy Tumiwa" class="profile-rect">
+            <img src="image/profile_id.jpg" alt="Raymond Timothy Tumiwa" class="profile-rect">
         </div>
     </div>
     
     <div class="research-interests">
-    <h3>Current Research & Development</h3>
-    <ul>
-        <li>
-            <strong>Open-Source Surgical Robotics:</strong> 
-            Development and optimization of the <em>opensurgbot</em> platform to improve accessibility in robotic-assisted surgery.
-        </li>
-        <li>
-            <strong>Embedded Systems & Real-time Control:</strong> 
-            Implementation of high-performance control loops on <strong>STM32</strong> microcontrollers using C and the HAL library.
-        </li>
-        <li>
-            <strong>Mechatronic System Integration:</strong> 
-            Designing the synergy between mechanical hardware and electronic control for precision surgical instruments.
-        </li>
-    </ul>
-    
+        <h2>Current Research & Development</h2>
+        <ul class="research-list">
+            <li class="research-item">
+                <p>
+                    <strong>Open-Source Surgical Robotics:</strong> 
+                    Development and optimization of the <em>opensurgbot</em> platform to improve accessibility in robotic-assisted surgery.
+                </p>
+            </li>
+            <li class="research-item">
+                <p>
+                    <strong>Embedded Systems & Real-time Control:</strong> 
+                    Implementation of high-performance control loops on <strong>STM32</strong> microcontrollers using C and the HAL library.
+                </p>
+            </li>
+            <li class="research-item">
+                <p>
+                    <strong>Mechatronic System Integration:</strong> 
+                    Designing the synergy between mechanical hardware and electronic control for precision surgical instruments.
+                </p>
+            </li>
+        </ul>
+    </div>
     
     <div class="collaboration-callout">
         <p>Interested in collaborating on surgical robotics or embedded systems? 
@@ -85,10 +99,9 @@
 
     <div class="project-card">
         <div class="project-left">
-            <span class="project-year">2025</span>
+            <span class="project-year">2026</span>
             <div class="project-btns">
-                <a href="#" class="btn-sm">GITHUB</a>
-                <a href="#" class="btn-sm">DOCS</a>
+                <a href="https://lgabp1.github.io/opensurgbot/" class="btn-sm">GITHUB</a>
             </div>
         </div>
         
@@ -99,15 +112,16 @@
         </div>
 
         <div class="project-right">
-            <img src="images/robot-hero.jpg" alt="OpenSurgBot" class="project-img">
+            <img src="image/opensurgbot.png" alt="OpenSurgBot" class="project-img">
         </div>
     </div>
 
     <div class="project-card">
         <div class="project-left">
-            <span class="project-year">2026</span>
+            <span class="project-year">2025</span>
             <div class="project-btns">
-                <a href="#" class="btn-sm">MODEL</a>
+                <a href="assets/Project.fsm" class="btn-sm">MODEL</a>
+                <a href="assets/ME6801J_project.pdf" class="btn-sm">PPT</a>
             </div>
         </div>
         
@@ -118,15 +132,19 @@
         </div>
 
         <div class="project-right">
-            <img src="images/stm32-control.jpg" alt="Battery Project" class="project-img">
+            <img src="image/battery_model.jpg" alt="Battery Project" class="project-img">
         </div>
     </div>
+    
 </section>
 
+    <button onclick="topFunction()" id="backToTop" title="Go to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
     <footer class="container">
-        <p>&copy; 2026 Yu Lingzhi (余领智). Built with VSC.</p>
+        <p>Copyright &copy; 2026 Raymond Timothy Tumiwa</p>
     </footer>
-
-<script src="script.js"></script>
+    
+    <script src="script.js"></script>
 </body>
 </html>
