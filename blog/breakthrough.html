@@ -6,10 +6,9 @@
     <title>The Path Leading to Breakthrough | Raymond Timothy Tumiwa</title>
     
     <link rel="stylesheet" href="../style.css">
-    <link rel="stylesheet" href="../blog.css">
-    
-    <link rel="icon" type="image/png" href="../images/Favicon.png">
+    <link rel="icon" type="image/png" href="../image/Favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&amp;display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="progress-container">
@@ -34,7 +33,7 @@
                 <a href="../index.html">About</a>
                 <a href="../blog.html">Blog</a>
                 <a href="../assets/cv.pdf" target="_blank">CV</a>
-                <button id="dark-mode-toggle"><i id="theme-icon" class="fa-solid fa-moon"></i></button>
+                <button id="dark-mode-toggle" aria-label="Toggle Dark Mode">🌙</button>
             </div>
         </div>
     </nav>
@@ -144,14 +143,21 @@
                 </ul>
             </div>
 
-            <div class="collaboration-callout">
-                <h3>Call to Action: Your System Upgrade</h3>
-                <p>The door isn't locked because you lack the key. It's locked because you haven't yet built the hand that can turn it. Start building today.</p>
-                <ul class="research-list" style="margin-top: 15px;">
-                    <li class="research-item"><p><strong>Crave Understanding:</strong> What is currently lacking in my life and how to improve?</p></li>
-                    <li class="research-item"><p><strong>Take One of the 10 BREAKPOINT:</strong> Apply it for the next 48 hours.</p></li>
-                    <li class="research-item"><p><strong>Audit the Rhythm:</strong> Is your rhythm for a "Fixed Life" or a "Growth Life"?</p></li>
-                </ul>
+            <div class="collaboration-callout" data-collapsible="true" data-open="false">
+                <h3 class="callout-title">
+                    <button type="button" class="callout-toggle" aria-expanded="false">
+                        <span>Call to Action: Your System Upgrade</span>
+                        <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+                    </button>
+                </h3>
+                <div class="callout-content" hidden>
+                    <p>The door isn't locked because you lack the key. It's locked because you haven't yet built the hand that can turn it. Start building today.</p>
+                    <ul class="research-list" style="margin-top: 15px;">
+                        <li class="research-item"><p><strong>Crave Understanding:</strong> What is currently lacking in my life and how to improve?</p></li>
+                        <li class="research-item"><p><strong>Take One of the 10 BREAKPOINT:</strong> Apply it for the next 48 hours.</p></li>
+                        <li class="research-item"><p><strong>Audit the Rhythm:</strong> Is your rhythm for a "Fixed Life" or a "Growth Life"?</p></li>
+                    </ul>
+                </div>
             </div>
         </article>
     </main>
