@@ -1,4 +1,4 @@
-const toggle = document.getElementById("dark-mode-toggle");
+const themeToggles = Array.from(document.querySelectorAll("[data-theme-toggle]"));
 const savedTheme = localStorage.getItem("theme");
 
 function updateProgressBar() {
@@ -28,12 +28,23 @@ function handleScroll() {
     updateBackToTopButton();
 }
 
+function updateThemeToggleIcons(theme) {
+    const icon = theme === "dark" ? "☀️" : "🌙";
+
+    themeToggles.forEach((toggleBtn) => {
+        const iconEl = toggleBtn.querySelector(".theme-icon");
+        if (iconEl) {
+            iconEl.textContent = icon;
+            return;
+        }
+
+        toggleBtn.textContent = icon;
+    });
+}
+
 function applyTheme(theme) {
     document.documentElement.setAttribute("data-theme", theme);
-
-    if (toggle) {
-        toggle.textContent = theme === "dark" ? "☀️" : "🌙";
-    }
+    updateThemeToggleIcons(theme);
 }
 
 function toggleTheme() {
@@ -79,6 +90,101 @@ function initializeCalloutToggles() {
     });
 }
 
+function initializeMobileMenus() {
+    const navSplits = document.querySelectorAll(".nav-split");
+
+    navSplits.forEach((navSplit) => {
+        const menuToggle = navSplit.querySelector(".mobile-menu-toggle");
+        const menu = navSplit.querySelector(".mobile-menu");
+        if (!menuToggle || !menu) {
+            return;
+        }
+
+        const searchInput = menu.querySelector(".mobile-menu-search");
+        const menuItems = Array.from(menu.querySelectorAll(".mobile-menu-item"));
+        const emptyState = menu.querySelector(".mobile-menu-empty");
+
+        const filterMenuItems = () => {
+            const query = (searchInput?.value || "").trim().toLowerCase();
+            let visibleCount = 0;
+
+            menuItems.forEach((item) => {
+                const label = (item.dataset.menuLabel || item.textContent || "").toLowerCase();
+                const matches = label.includes(query);
+                item.hidden = !matches;
+                if (matches) {
+                    visibleCount += 1;
+                }
+            });
+
+            if (emptyState) {
+                emptyState.hidden = visibleCount > 0;
+            }
+        };
+
+        const closeMenu = () => {
+            if (menu.hidden) {
+                return;
+            }
+
+            menu.hidden = true;
+            menuToggle.setAttribute("aria-expanded", "false");
+            if (searchInput) {
+                searchInput.value = "";
+            }
+            filterMenuItems();
+        };
+
+        const openMenu = () => {
+            menu.hidden = false;
+            menuToggle.setAttribute("aria-expanded", "true");
+            filterMenuItems();
+            searchInput?.focus();
+        };
+
+        menuToggle.addEventListener("click", (event) => {
+            event.stopPropagation();
+            if (menu.hidden) {
+                openMenu();
+                return;
+            }
+
+            closeMenu();
+        });
+
+        searchInput?.addEventListener("input", filterMenuItems);
+
+        menuItems.forEach((item) => {
+            item.addEventListener("click", closeMenu);
+        });
+
+        document.addEventListener("click", (event) => {
+            const target = event.target;
+            if (menu.hidden || !(target instanceof Node)) {
+                return;
+            }
+
+            if (!menu.contains(target) && !menuToggle.contains(target)) {
+                closeMenu();
+            }
+        });
+
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape") {
+                closeMenu();
+            }
+        });
+
+        window.addEventListener("resize", () => {
+            if (window.innerWidth > 768) {
+                closeMenu();
+            }
+        });
+
+        filterMenuItems();
+    });
+}
+
 function topFunction() {
     window.scrollTo({ top: 0, behavior: "smooth" });
 }
@@ -89,13 +195,14 @@ if (savedTheme === "dark") {
     applyTheme("light");
 }
 
-if (toggle) {
-    toggle.addEventListener("click", toggleTheme);
-}
+themeToggles.forEach((toggleBtn) => {
+    toggleBtn.addEventListener("click", toggleTheme);
+});
 
 window.addEventListener("scroll", handleScroll, { passive: true });
 window.addEventListener("load", () => {
     setTodayDate();
     initializeCalloutToggles();
+    initializeMobileMenus();
     handleScroll();
 });
