@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connect | Raymond Timothy Tumiwa</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="image/Favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&amp;display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <div class="container nav-split">
+            <div class="nav-left">
+                <a href="index.html" class="nav-logo-link">
+                    <img src="image/Favicon.png" alt="RT Logo" class="nav-logo-img">
+                </a>
+                <a href="mailto:raymondt16@sjtu.edu.cn"><i class="fa-solid fa-envelope"></i></a>
+                <a href="https://www.linkedin.com/in/raymond-tumiwa/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://github.com/raymondttumiwa" target="_blank"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.instagram.com/raymondtumiwaa_/" target="_blank" class="instagram-link"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.strava.com/athletes/48459231" target="_blank" class="strava-link">
+                    <i class="fa-brands fa-strava"></i>
+                </a>
+            </div>
+
+            <div class="nav-right">
+                <a href="index.html">About</a>
+                <a href="blog.html">Blog</a>
+                <a href="connect.html">Connect</a>
+                <a href="assets/cv.pdf" target="_blank">CV</a>
+                <button id="dark-mode-toggle" data-theme-toggle aria-label="Toggle Dark Mode">🌙</button>
+            </div>
+
+            <button type="button" class="mobile-menu-toggle" aria-expanded="false" aria-label="Open navigation menu">
+                <i class="fa-solid fa-ellipsis-vertical" aria-hidden="true"></i>
+            </button>
+
+            <div class="mobile-menu" hidden>
+                <label class="mobile-menu-search-wrap">
+                    <span class="sr-only">Search menu items</span>
+                    <input type="search" class="mobile-menu-search" placeholder="Search menu..." autocomplete="off">
+                </label>
+                <div class="mobile-menu-items">
+                    <a href="index.html" class="mobile-menu-item" data-menu-label="about">About</a>
+                    <a href="blog.html" class="mobile-menu-item" data-menu-label="blog">Blog</a>
+                    <a href="connect.html" class="mobile-menu-item" data-menu-label="connect">Connect</a>
+                    <a href="assets/cv.pdf" target="_blank" class="mobile-menu-item" data-menu-label="cv">CV</a>
+                    <button type="button" class="mobile-menu-item mobile-theme-toggle" data-theme-toggle data-menu-label="night mode">
+                        <span>Night Mode</span>
+                        <span class="theme-icon" aria-hidden="true">🌙</span>
+                    </button>
+                </div>
+                <p class="mobile-menu-empty" hidden>No matches found.</p>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container connect-page">
+        <section class="connect-hero">
+            <img src="image/Ray.jpg" alt="Raymond Timothy Tumiwa" class="connect-profile-image">
+            <p class="connect-kicker">Let's Connect</p>
+            <h1 class="connect-title">Raymond Timothy Tumiwa</h1>
+            <p class="connect-subtitle">MSc Student at Shanghai Jiao Tong University | Robotics and Control Systems</p>
+            <p class="connect-intro">Hey! Let's get connected! Whether it's for a prayer, bible study, running, researching, boardgames, or just a friendly chat. Hit Me Up!</p>
+            <a class="connect-save-contact-btn" href="assets/raymond_tumiwa_contact.vcf" download>
+                <i class="fa-solid fa-address-card" aria-hidden="true"></i>
+                <span>Save Contact</span>
+            </a>
+        </section>
+
+        <section class="connect-links-grid" aria-label="Connect links">
+            <a class="connect-link-card connect-link-whatsapp" href="https://wa.me/6281281865018" target="_blank" rel="noopener noreferrer">
+                <div class="connect-link-icon"><i class="fa-brands fa-whatsapp"></i></div>
+                <div class="connect-link-content">
+                    <h2>WhatsApp</h2>
+                    <p>Message me directly</p>
+                </div>
+                <span class="connect-link-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+            </a>
+
+            <a class="connect-link-card connect-link-instagram" href="https://www.instagram.com/raymondtumiwaa_/" target="_blank" rel="noopener noreferrer">
+                <div class="connect-link-icon"><i class="fa-brands fa-instagram"></i></div>
+                <div class="connect-link-content">
+                    <h2>Instagram</h2>
+                    <p>Life, travel, and daily moments</p>
+                </div>
+                <span class="connect-link-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+            </a>
+
+            <a class="connect-link-card connect-link-strava" href="https://www.strava.com/athletes/48459231" target="_blank" rel="noopener noreferrer">
+                <div class="connect-link-icon"><i class="fa-brands fa-strava"></i></div>
+                <div class="connect-link-content">
+                    <h2>Strava</h2>
+                    <p>Running and Marathon Progress</p>
+                </div>
+                <span class="connect-link-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+            </a>
+
+            <a class="connect-link-card connect-link-email" href="mailto:raymondt16@sjtu.edu.cn">
+                <div class="connect-link-icon"><i class="fa-solid fa-envelope"></i></div>
+                <div class="connect-link-content">
+                    <h2>Email</h2>
+                    <p>raymondt16@sjtu.edu.cn</p>
+                </div>
+                <span class="connect-link-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+            </a>
+            
+            <a class="connect-link-card connect-link-linkedin" href="https://www.linkedin.com/in/raymond-tumiwa/" target="_blank" rel="noopener noreferrer">
+                <div class="connect-link-icon"><i class="fa-brands fa-linkedin"></i></div>
+                <div class="connect-link-content">
+                    <h2>LinkedIn</h2>
+                    <p>Professional profile and updates</p>
+                </div>
+                <span class="connect-link-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+            </a>
+
+            <a class="connect-link-card connect-link-github" href="https://github.com/raymondttumiwa" target="_blank" rel="noopener noreferrer">
+                <div class="connect-link-icon"><i class="fa-brands fa-github"></i></div>
+                <div class="connect-link-content">
+                    <h2>GitHub</h2>
+                    <p>Projects, code, and experiments</p>
+                </div>
+                <span class="connect-link-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+            </a>
+        </section>
+    </main>
+
+    <footer class="container">
+        <p>Copyright &copy; 2026 Raymond Timothy Tumiwa</p>
+    </footer>
+
+    <button onclick="topFunction()" id="backToTop" title="Go to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>

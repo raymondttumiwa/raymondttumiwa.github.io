@@ -1117,6 +1117,165 @@ nav {
     color: #fff !important;
 }
 
+/* Connect page */
+.connect-page {
+    padding-top: 34px;
+}
+
+.connect-hero {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 24px;
+}
+
+.connect-profile-image {
+    width: 140px;
+    height: 140px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    object-fit: cover;
+    box-shadow: var(--shadow);
+    margin-bottom: 16px;
+}
+
+.connect-kicker {
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted-text);
+    margin-bottom: 8px;
+}
+
+.connect-title {
+    font-size: 2.2rem;
+    line-height: 1.15;
+    letter-spacing: -0.8px;
+    margin-bottom: 8px;
+}
+
+.connect-subtitle {
+    font-size: 1.02rem;
+    color: var(--muted-text);
+    margin-bottom: 10px;
+}
+
+.connect-intro {
+    max-width: 620px;
+    margin: 0 auto;
+}
+
+.connect-save-contact-btn {
+    margin-top: 16px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--card-bg);
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text-color);
+    transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.connect-save-contact-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: translateY(-1px);
+}
+
+.connect-links-grid {
+    max-width: 860px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.connect-link-card {
+    --connect-brand: var(--accent);
+    border: 1px solid var(--border);
+    border-left: 5px solid var(--connect-brand);
+    border-radius: 12px;
+    background: var(--card-bg);
+    box-shadow: var(--shadow);
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.connect-link-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent);
+}
+
+.connect-link-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    color: var(--connect-brand);
+    flex: 0 0 auto;
+}
+
+.connect-link-content {
+    min-width: 0;
+    flex: 1;
+}
+
+.connect-link-content h2 {
+    font-size: 1rem;
+    margin-bottom: 2px;
+    color: var(--connect-brand);
+}
+
+.connect-link-content p {
+    font-size: 0.9rem;
+    color: var(--muted-text);
+}
+
+.connect-link-arrow {
+    color: var(--connect-brand);
+    font-size: 0.9rem;
+    flex: 0 0 auto;
+}
+
+.connect-link-whatsapp {
+    --connect-brand: #25d366;
+}
+
+.connect-link-strava {
+    --connect-brand: #fc4c02;
+}
+
+.connect-link-instagram {
+    --connect-brand: #d62976;
+}
+
+.connect-link-email {
+    --connect-brand: #0078d4;
+}
+
+.connect-link-linkedin {
+    --connect-brand: #0a66c2;
+}
+
+.connect-link-github {
+    --connect-brand: #24292f;
+}
+
+[data-theme="dark"] .connect-link-github {
+    --connect-brand: #c9d1d9;
+}
+
 .quote-actions {
     position: absolute;
     z-index: 2100;
@@ -1360,6 +1519,54 @@ footer {
         gap: 12px;
         display: grid;
         grid-template-columns: 1fr 1fr;
+    }
+
+    .connect-title {
+        font-size: 1.75rem;
+        letter-spacing: -0.4px;
+    }
+
+    .connect-subtitle {
+        font-size: 0.95rem;
+    }
+
+    .connect-save-contact-btn {
+        margin-top: 14px;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .connect-links-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .connect-link-card {
+        padding: 12px;
+        display: grid;
+        grid-template-columns: 42px minmax(0, 1fr) 18px;
+        align-items: center;
+        column-gap: 10px;
+        row-gap: 0;
+    }
+
+    .connect-link-icon {
+        margin: 0;
+        justify-self: center;
+    }
+
+    .connect-link-content {
+        margin: 0;
+    }
+
+    .connect-link-arrow {
+        justify-self: center;
+        align-self: center;
+        margin: 0;
+    }
+
+    .connect-link-content p {
+        font-size: 0.86rem;
     }
 
     .blog-content {
