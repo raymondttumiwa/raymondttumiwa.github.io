@@ -212,7 +212,7 @@ function buildCalloutActionButtons() {
 
     const actionGuide = document.createElement("p");
     actionGuide.className = "callout-action-guide";
-    actionGuide.textContent = "Don't know where to start? Let's start together. Send your prayer request on WhatsApp or join our 365 Bible reading journey today.";
+    actionGuide.textContent = "Not sure where to start? Send your prayer request on WhatsApp or begin BIBLE365 today.";
 
     const actionButtons = document.createElement("div");
     actionButtons.className = "callout-action-buttons";
@@ -229,7 +229,7 @@ function buildCalloutActionButtons() {
     const readingPlanButton = document.createElement("a");
     readingPlanButton.href = blogCtaConfig.readingPlanUrl;
     readingPlanButton.className = "callout-cta-btn reading-plan-cta-btn";
-    readingPlanButton.innerHTML = "<i class=\"fa-solid fa-book-bible\" aria-hidden=\"true\"></i><span>Join 365 Bible Reading Plan</span>";
+    readingPlanButton.innerHTML = "<i class=\"fa-solid fa-book-bible\" aria-hidden=\"true\"></i><span>Start BIBLE365</span>";
 
     actionButtons.append(whatsappButton, readingPlanButton);
     actionBlock.append(actionGuide, actionButtons);
