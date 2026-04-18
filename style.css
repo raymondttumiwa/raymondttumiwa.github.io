@@ -948,6 +948,95 @@ nav {
     padding: 12px;
 }
 
+.framework-swipe-card {
+    padding: 0;
+    overflow: hidden;
+}
+
+.framework-swipe-toggle {
+    width: 100%;
+    border: 0;
+    background: none;
+    color: inherit;
+    padding: 0;
+    cursor: pointer;
+    text-align: left;
+}
+
+.framework-swipe-track {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 200%;
+    transform: translateX(0);
+    transition: transform 0.36s ease;
+}
+
+.framework-swipe-card[data-expanded="true"] .framework-swipe-track {
+    transform: translateX(-50%);
+}
+
+.framework-face {
+    min-height: 220px;
+    padding: 18px 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.framework-face-front {
+    align-items: center;
+    gap: 10px;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.08), transparent 45%),
+        radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.06), transparent 40%),
+        linear-gradient(135deg, rgba(66, 95, 147, 0.78), rgba(38, 58, 98, 0.9));
+    color: #fff;
+}
+
+.framework-face-back {
+    justify-content: flex-start;
+    gap: 8px;
+    background: var(--card-bg);
+}
+
+.framework-wordmark {
+    font-family: var(--font-ui);
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    font-weight: 800;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+.framework-hint {
+    font-size: 0.82rem;
+    opacity: 0.88;
+}
+
+.framework-face-back .framework-hint {
+    margin-top: 2px;
+    color: var(--muted-text);
+}
+
+.framework-face-title {
+    font-family: var(--font-ui);
+    font-size: 1.25rem;
+    font-weight: 800;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 2px;
+}
+
+.framework-detail-line {
+    line-height: 1.4;
+    font-size: 0.92rem;
+}
+
+.framework-swipe-toggle:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: -2px;
+}
+
 .calibration-framework-card h4 {
     font-family: var(--font-ui);
     font-size: 0.93rem;
@@ -1607,6 +1696,15 @@ footer {
     .framework-word {
         font-size: 1.7rem;
         letter-spacing: 1.4px;
+    }
+
+    .framework-face {
+        min-height: 200px;
+        padding: 16px 14px;
+    }
+
+    .framework-wordmark {
+        letter-spacing: 3px;
     }
 
     .onboarding-check-item {

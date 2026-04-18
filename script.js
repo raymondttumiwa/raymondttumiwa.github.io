@@ -538,6 +538,40 @@ function initializeOnboardingChecklist() {
     syncUi();
 }
 
+function initializeFrameworkSwipeCards() {
+    const frameworkCards = Array.from(document.querySelectorAll("[data-framework-card]"));
+    if (frameworkCards.length === 0) {
+        return;
+    }
+
+    frameworkCards.forEach((card) => {
+        const toggleButton = card.querySelector("[data-framework-toggle]");
+        if (!(toggleButton instanceof HTMLButtonElement)) {
+            return;
+        }
+
+        toggleButton.addEventListener("click", () => {
+            const isExpanded = card.dataset.expanded === "true";
+            const nextExpanded = !isExpanded;
+
+            frameworkCards.forEach((otherCard) => {
+                if (otherCard === card) {
+                    return;
+                }
+
+                otherCard.dataset.expanded = "false";
+                const otherToggle = otherCard.querySelector("[data-framework-toggle]");
+                if (otherToggle instanceof HTMLButtonElement) {
+                    otherToggle.setAttribute("aria-expanded", "false");
+                }
+            });
+
+            card.dataset.expanded = String(nextExpanded);
+            toggleButton.setAttribute("aria-expanded", String(nextExpanded));
+        });
+    });
+}
+
 function topFunction() {
     window.scrollTo({ top: 0, behavior: "smooth" });
 }
@@ -561,6 +595,7 @@ window.addEventListener("load", () => {
     initializeWhatsAppCtas();
     initializeQuoteActions();
     initializeOnboardingChecklist();
+    initializeFrameworkSwipeCards();
     initializeMobileMenus();
     handleScroll();
 });
