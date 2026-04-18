@@ -1041,6 +1041,8 @@ nav {
     font-family: var(--font-ui);
     font-size: 0.93rem;
     margin-bottom: 8px;
+    color: var(--accent);
+    font-weight: 800;
 }
 
 .calibration-framework-card .onboarding-steps {
@@ -1204,6 +1206,49 @@ nav {
 .onboarding-start-btn:hover {
     background: var(--accent-strong);
     color: #fff !important;
+}
+
+.onboarding-highlight {
+    margin-top: 22px;
+    margin-bottom: 8px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(0, 122, 255, 0.08), rgba(0, 122, 255, 0.03));
+    box-shadow: var(--shadow);
+    padding: 16px 18px;
+}
+
+.onboarding-highlight-label {
+    margin: 0;
+    font-size: 0.82rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 700;
+}
+
+.onboarding-highlight-verse {
+    margin: 8px 0 0;
+    padding-left: 12px;
+    border-left: 3px solid var(--accent);
+    font-family: var(--font-reading);
+    font-style: italic;
+    color: var(--text-color);
+}
+
+.onboarding-highlight-verse span {
+    display: block;
+    margin-top: 6px;
+    font-family: var(--font-ui);
+    font-size: 0.9rem;
+    font-style: normal;
+    font-weight: 700;
+    color: var(--muted-text);
+}
+
+.onboarding-highlight-note {
+    margin-top: 10px;
+    color: var(--muted-text);
 }
 
 /* Connect page */
@@ -1680,7 +1725,8 @@ footer {
 
     .onboarding-section,
     .onboarding-card,
-    .onboarding-final {
+    .onboarding-final,
+    .onboarding-highlight {
         padding: 14px;
     }
 
